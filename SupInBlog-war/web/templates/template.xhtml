@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title><ui:insert name="title">Top</ui:insert></title>
+        <script type="text/javascript" src="./resources/js/script.js"></script>
+
+        <link rel="stylesheet" href="./resources/css/style.css" type="text/css" media="screen" />
+        <!--[if IE 6]><link rel="stylesheet" href="./resources/css/style.ie6.css" type="text/css" media="screen" /><![endif]-->
+        <!--[if IE 7]><link rel="stylesheet" href="./resources/css/style.ie7.css" type="text/css" media="screen" /><![endif]-->
+        <script src="tiny_mce/tiny_mce.js" type="text/javascript"></script>
+        <script type="text/javascript">
+             tinyMCE.init({
+              // General options
+              mode : "textareas",
+              theme : "advanced",
+              plugins : "spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+              width : "550",
+              height : "300",
+              // Theme options
+              theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,formatselect,fontselect,fontsizeselect",
+              theme_advanced_buttons2 : "hr,emotions,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,code,|,forecolor,backcolor",
+              theme_advanced_toolbar_location : "top",
+              theme_advanced_toolbar_align : "left",
+              theme_advanced_statusbar_location : "bottom",
+              theme_advanced_resizing : true
+
+       
+      });
+        </script>
+    </h:head>
+    <h:body>
+        <div id="art-page-background-gradient"></div>
+        <div id="art-page-background-glare">
+            <div id="art-page-background-glare-image"></div>
+        </div>
+
+        <div id="art-main">
+            <div class="art-Sheet">
+                <div class="art-Sheet-tl"></div>
+                <div class="art-Sheet-tr"></div>
+                <div class="art-Sheet-bl"></div>
+                <div class="art-Sheet-br"></div>
+                <div class="art-Sheet-tc"></div>
+                <div class="art-Sheet-bc"></div>
+                <div class="art-Sheet-cl"></div>
+                <div class="art-Sheet-cr"></div>
+                <div class="art-Sheet-cc"></div>
+                <div class="art-Sheet-body">
+
+
+                    <div class="art-Header">
+                        <ui:include src="../pages/header.xhtml" />
+                    </div>
+                    <div class="art-nav">
+                        <ui:include src="../pages/menu.xhtml" />
+                    </div>
+
+                    <div class="art-contentLayout">
+
+                        <div class="art-content">
+                            <ui:insert name="content"/>
+                        </div>
+
+                        <div class="art-sidebar1">
+                            <ui:include src="../pages/sidebar.xhtml" />
+                        </div>
+                    </div>
+
+                    <div class="cleared"></div>
+                    <div class="art-Footer">
+                        <ui:include src="../pages/footer.xhtml" />
+                    </div>
+                    <div class="cleared"></div>
+                </div>
+            </div>
+            <div class="cleared"></div>
+        </div>
+    </h:body>  
+</html>

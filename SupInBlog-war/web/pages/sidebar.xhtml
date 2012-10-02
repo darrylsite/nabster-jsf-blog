@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>menu</title>
+    </head>
+    <body>
+        <ui:composition>
+            <div class="art-Block">
+                <div class="art-Block-tl"></div>
+                <div class="art-Block-tr"></div>
+                <div class="art-Block-bl"></div>
+                <div class="art-Block-br"></div>
+                <div class="art-Block-tc"></div>
+                <div class="art-Block-bc"></div>
+                <div class="art-Block-cl"></div>
+                <div class="art-Block-cr"></div>
+                <div class="art-Block-cc"></div>
+                <div class="art-Block-body">
+                    <ui:include src="Login.xhtml" >
+                         <ui:param name="title" value="Compte" />
+                    </ui:include>
+                </div>
+            </div>
+
+            <c:if test="#{userBean.longin}">
+            <div class="art-Block">
+                <div class="art-Block-tl"></div>
+                <div class="art-Block-tr"></div>
+                <div class="art-Block-bl"></div>
+                <div class="art-Block-br"></div>
+                <div class="art-Block-tc"></div>
+                <div class="art-Block-bc"></div>
+                <div class="art-Block-cl"></div>
+                <div class="art-Block-cr"></div>
+                <div class="art-Block-cc"></div>
+                <div class="art-Block-body">
+                    <ui:include src="action.xhtml" >
+                        <ui:param name="title" value="Action" />
+                        <ui:param name="content" value="">
+                        </ui:param>
+                    </ui:include>
+                </div>
+            </div>
+            </c:if>
+
+            <div class="art-Block">
+                <div class="art-Block-tl"></div>
+                <div class="art-Block-tr"></div>
+                <div class="art-Block-bl"></div>
+                <div class="art-Block-br"></div>
+                <div class="art-Block-tc"></div>
+                <div class="art-Block-bc"></div>
+                <div class="art-Block-cl"></div>
+                <div class="art-Block-cr"></div>
+                <div class="art-Block-cc"></div>
+                <div class="art-Block-body">
+                <div class="art-BlockHeader">
+                  <div class="l"></div>
+                  <div class="r"></div>
+                  <div class="art-header-tag-icon">
+                    <div class="t">
+                        <h:form>
+                            <h:commandLink value="Categories" action="afficheCategories" style="Color: black"/>
+                        </h:form>
+                    </div>
+                  </div>
+               </div>
+                 <div class="art-BlockContent">
+                <div class="art-BlockContent-tl"></div>
+                <div class="art-BlockContent-tr"></div>
+                <div class="art-BlockContent-bl"></div>
+                <div class="art-BlockContent-br"></div>
+                <div class="art-BlockContent-tc"></div>
+                <div class="art-BlockContent-bc"></div>
+                <div class="art-BlockContent-cl"></div>
+                <div class="art-BlockContent-cr"></div>
+                <div class="art-BlockContent-cc"></div>
+                <div class="art-BlockContent-body">
+                    <h:form>
+                        <ul>
+                    <c:forEach var="cat" items="#{action.categories}">
+                        <li>
+                        <h:commandLink value="#{cat.name}" action="#{action.gotoCategory}">
+                            <f:setPropertyActionListener target="#{categorieBean.catId}" value="#{cat.id}" />
+                        </h:commandLink>
+                        </li>
+                    </c:forEach>
+                        </ul>
+                    </h:form>
+               <div class="cleared"></div>
+                </div>
+            </div>
+            <div class="cleared"></div>
+
+
+             </div>
+            </div>
+
+            <div class="art-Block">
+                <div class="art-Block-tl"></div>
+                <div class="art-Block-tr"></div>
+                <div class="art-Block-bl"></div>
+                <div class="art-Block-br"></div>
+                <div class="art-Block-tc"></div>
+                <div class="art-Block-bc"></div>
+                <div class="art-Block-cl"></div>
+                <div class="art-Block-cr"></div>
+                <div class="art-Block-cc"></div>
+                <div class="art-Block-body">
+                    <div class="art-BlockHeader">
+                <div class="l"></div>
+                <div class="r"></div>
+                <div class="art-header-tag-icon">
+                    <div class="t">Billets mis à jour</div>
+                </div>
+            </div>
+            <div class="art-BlockContent">
+                <div class="art-BlockContent-tl"></div>
+                <div class="art-BlockContent-tr"></div>
+                <div class="art-BlockContent-bl"></div>
+                <div class="art-BlockContent-br"></div>
+                <div class="art-BlockContent-tc"></div>
+                <div class="art-BlockContent-bc"></div>
+                <div class="art-BlockContent-cl"></div>
+                <div class="art-BlockContent-cr"></div>
+                <div class="art-BlockContent-cc"></div>
+                <div class="art-BlockContent-body">
+                  <h:form>
+                      <ul>
+                        <c:forEach var="post" items="#{postBean.updatedPostList}">
+                            <li>
+                            <h:commandLink value="#{post.title}" action="#{postBean.gotoPostDetail}">
+                            <f:setPropertyActionListener target="#{postBean.id}" value="#{post.id}" />
+                        </h:commandLink>
+                            </li>
+                    </c:forEach>
+                      </ul>
+                    </h:form>
+                    <div class="cleared"></div>
+                </div>
+            </div>
+            <div class="cleared"></div>
+                </div>
+            </div>
+        </ui:composition>
+    </body>
+</html>

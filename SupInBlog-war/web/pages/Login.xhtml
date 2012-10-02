@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Untitled Document</title>
+    </head>
+    <body>
+        <ui:composition>
+            <div class="art-BlockHeader">
+                <div class="l"></div>
+                <div class="r"></div>
+                <div class="art-header-tag-icon">
+                    <div class="t">#{title}</div>
+                </div>
+            </div>
+
+            <div class="art-BlockContent">
+                <div class="art-BlockContent-tl"></div>
+                <div class="art-BlockContent-tr"></div>
+                <div class="art-BlockContent-bl"></div>
+                <div class="art-BlockContent-br"></div>
+                <div class="art-BlockContent-tc"></div>
+                <div class="art-BlockContent-bc"></div>
+                <div class="art-BlockContent-cl"></div>
+                <div class="art-BlockContent-cr"></div>
+                <div class="art-BlockContent-cc"></div>
+                <div class="art-BlockContent-body">
+                    <c:if test="#{!userBean.longin}">
+                        <h:form rendered="#{!userBean.longin}">
+                            Pseudo :<br/> <h:inputText id="loginForm_name" value="#{userBean.pseudo}" /><br/>
+                            Pass : <br/><h:inputSecret id="loginForm_pass" value="#{userBean.password}"/><br/>
+                            <span class="art-button-wrapper  ">
+                                <span class="l"> </span>
+                                <span class="r"> </span>
+                                <h:commandButton id="loginForm_submit" styleClass="art-button" value="valider" action="#{userBean.login}" />
+                            </span><br/>
+                            <h:commandLink action="inscription" value="Inscription"/>
+                        </h:form>
+                        <h:outputLabel value="" binding="#{userBean.labelError}" style="color : red"/>
+                    </c:if>
+                    <c:if test="#{userBean.longin}">
+                        Bienvenu
+                        <h:outputText value="#{userBean.pseudo}" /><br/>
+                        <h:form>
+                            <h:commandLink value="deconnexion" action="#{userBean.disconnect}" />
+                        </h:form>
+                    </c:if>
+                    <div class="cleared"></div>
+                </div>
+            </div>
+            <div class="cleared"></div>
+        </ui:composition>
+    </body>
+</html>

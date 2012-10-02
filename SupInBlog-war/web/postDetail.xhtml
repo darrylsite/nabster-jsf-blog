@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./templates/template.xhtml"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+
+    <ui:define name="title">
+        #{postBean.title}
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="art-Post">
+            <div class="art-Post-body">
+                <div class="art-Post-inner">
+                    <div class="art-PostContent">
+                            <ui:include src="pages/postDisplayer.xhtml">
+                                <ui:param name="id" value="#{postBean.id}" />
+                                <ui:param name="title" value=" #{postBean.title}" />
+                                <ui:param name="dateCreation" value="#{postBean.creationDate}" />
+                                <ui:param name="author" value="#{postBean.author.userName}" />
+                                <ui:param name="dateUpdate" value="#{postBean.upDate}" />
+                                <ui:param name="categories" value="#{postBean.categoryList}" />
+                                <ui:param name="content" value="#{postBean.content}" />
+                                <ui:param name="userId" value="#{postBean.userId}" />
+                                <ui:param name="nb_comment" id="nb_comment" value="#{postBean.commentNumber}" />
+                            </ui:include>
+                            <br/><hr/><br/>
+                                  
+                             <ui:include src="pages/addComment.xhtml"></ui:include>
+                            
+                            <c:forEach var="cmt" items="#{commentBean.allComment}">
+                                <ui:include src="pages/commentDisplayer.xhtml">
+                                  <ui:param name="date" value="#{cmt.creationDate}" />
+                                  <c:if test="#{userBean.longin}">
+                                    <ui:param name="author" value="#{cmt.user.userName}" />
+                                  </c:if>
+                                  <c:if test="#{!userBean.longin}">
+                                    <ui:param name="author" value="Anonyme" />
+                                  </c:if>
+                                  <ui:param name="content" value="#{cmt.content}" />
+                                  <ui:param name="id" value="#{cmt.id}" />
+                                </ui:include>
+                            </c:forEach>
+
+                    </div>
+                    <div class="cleared"></div>
+                </div>
+                <div class="cleared"></div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

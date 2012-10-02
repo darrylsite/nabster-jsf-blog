@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./templates/template.xhtml"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="title">
+        Affichage des categories
+    </ui:define>
+
+    <ui:define name="content">
+
+        <h2>Les categories disponibles</h2><br/>
+        <h:form>
+        <c:forEach var="cat" items="#{action.categories}">
+            <p>
+            <h3>
+            <h:commandLink value="#{cat.name}" action="#{action.gotoCategory}">
+                            <f:setPropertyActionListener target="#{categorieBean.catId}" value="#{cat.id}" />
+            </h:commandLink>
+            </h3>
+            <blockquote>
+                <h:outputText escape="false" value="#{cat.description}"/>
+                </blockquote>
+            <c:if test="#{userBean.longin}">
+             <h:commandLink value="Suppimer" action="#{action.delecategory}">
+                  <f:setPropertyActionListener target="#{action.catId}" value="#{cat.id}" />
+             </h:commandLink>
+                 |
+             <h:commandLink value="Modifier" action="manageCategorie">
+                 <f:setPropertyActionListener target="#{categorieBean.catId}" value="#{cat.id}" />
+                 <f:setPropertyActionListener target="#{categorieBean.modif}" value="true" />
+                 <f:setPropertyActionListener target="#{categorieBean.name}" value="#{cat.name}" />
+                 <f:setPropertyActionListener target="#{categorieBean.desc}" value="#{cat.description}" />
+             </h:commandLink>
+            </c:if>
+            </p>
+        </c:forEach>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>
