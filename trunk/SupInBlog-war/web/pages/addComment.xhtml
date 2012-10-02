@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>menu</title>
+    </head>
+    <body>
+        <ui:composition>
+            <div class="art-Post">
+                <div class="art-Post-body">
+                    <div class="art-Post-inner">
+                        <h2 class="art-PostHeader">
+                            Commentaire
+                        </h2>
+                        <div class="art-PostContent">
+                            <h:form>
+                                <h:message for="comment_add" style="color:red"/>
+                                <h:inputTextarea id="comment_add" value="#{commentBean.content}" cols="55" rows="5" required="true" 
+                                                 requiredMessage="Saisissez le commentaire"/><br/>
+                                <div style="margin-left: 50%">
+                                    <h:commandButton value="Envoyer" action="#{commentBean.addComment}" >
+                                        <f:setPropertyActionListener target="#{commentBean.postId}" value="#{postBean.id}" />
+                                        <f:setPropertyActionListener target="#{commentBean.userId}" value="#{userBean.id}" />
+                                    </h:commandButton>
+                                </div>
+                            </h:form>
+                            <br/><hr style="width: 50%"/><br/>
+
+                        </div>
+                        <div class="cleared"></div>
+                    </div>
+                    <div class="cleared"></div>
+                </div>
+            </div>
+        </ui:composition>
+    </body>
+</html>

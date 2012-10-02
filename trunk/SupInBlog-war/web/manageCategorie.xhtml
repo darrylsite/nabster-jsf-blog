@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./templates/template.xhtml"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="title">
+        Création / Modification de categorie
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="art-Post">
+            <div class="art-Post-body">
+                <div class="art-Post-inner">
+                    <h2 class="art-PostHeader">
+                        <c:if test="#{categorieBean.modif}">
+                            <h:outputText value="Mofication"/>
+                        </c:if>
+                        <c:if test="#{!categorieBean.modif}">
+                            <h:outputText value="Création"/>
+                        </c:if>
+                        <h:outputText value=" de categorie "/><br/>
+                    </h2>
+                    <div class="art-PostContent">
+                        <h:form>
+                        <table>
+                            <tr>
+                                <td><h:outputLabel for="categorie_titre" value="Titre" /></td>
+                                <td>
+                                    <h:inputText id="categorie_titre" value="#{categorieBean.name}" size="50"></h:inputText><br/>
+                                </td>
+                            </tr>
+                            <tr>
+                                
+                                <td colspan="2">
+                                    <h:inputTextarea value="#{categorieBean.desc}" id="categorie_desc" cols="40" rows="8"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><br/>
+                                    <h:inputHidden id="categorie_id" value="#{categorieBean.catId}" />
+                                    <h:inputHidden id="categorie_modif" value="#{categorieBean.modif}" />
+                                    <c:if test="#{!categorieBean.modif}">  
+                                        <h:commandLink value="Enregistrer" action="#{categorieBean.createCategory}" id="categorie_create"/>
+                                    </c:if>
+                                    <c:if test="#{categorieBean.modif}">
+                                        <h:commandLink value="Modifier" action="#{categorieBean.modifyCategory}" id="categorie_modify"/>
+                                    </c:if>
+                                </td>
+                            </tr>
+                        </table>
+
+                        </h:form>
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                    <div class="cleared"></div>
+                </div>
+                <div class="cleared"></div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

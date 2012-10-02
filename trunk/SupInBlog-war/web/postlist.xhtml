@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./templates/template.xhtml"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="title">
+        Liste des post de la categorie #{categorieBean.name}
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="art-Post">
+            <div class="art-Post-body">
+                <div class="art-Post-inner">
+                    <h2 class="art-PostHeader">
+                        Post de la categorie #{categorieBean.name}
+                    </h2>
+                    <div class="art-PostContent">
+                        <c:forEach var="post" items="#{categorieBean.allPost}">
+                            <ui:include src="pages/postDisplayer.xhtml">
+                                <ui:param name="id" value="#{post.id}" />
+                                <ui:param name="title" value="#{post.title}" />
+                                <ui:param name="dateCreation" value="#{post.creationDate}" />
+                                <ui:param name="author" value="#{post.users.userName}" />
+                                <ui:param name="dateUpdate" value="#{post.lastModification}" />
+                                <ui:param name="categories" value="#{post.categories}" />
+                                <ui:param name="content" value="#{post.content}" />
+                                <ui:param name="userId" value="#{post.users.id}" />
+                                <ui:param name="nb_comment" id="nb_comment" value="#{post.commentsNumber}" />                               
+                            </ui:include>
+                            <br/><hr/><br/>
+                        </c:forEach>
+
+                    </div>
+                    <div class="cleared"></div>
+                </div>
+                <div class="cleared"></div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>menu</title>
+    </head>
+    <body>
+        <ui:composition>
+            <div style="margin-left: 55%" >
+                <p>
+                    Poster le <h:outputText value="#{date}">
+                        <f:convertDateTime  type="date" timeStyle="short"/>
+                    </h:outputText>
+                    par #{author} <br/>
+                </p>
+            </div>
+
+            <blockquote>
+                <h:outputText escape="false" value="#{content}"/>
+            </blockquote>
+
+            <c:if test="#{userBean.longin}">
+                <div style="margin-left: 45%">
+                <h:form>
+                    <h:commandLink  value="Supprimer" action="#{commentBean.deleteComment}">
+                        <f:setPropertyActionListener target="#{commentBean.id}" value="#{id}" />
+                    </h:commandLink>
+                </h:form>
+                </div>
+            </c:if>
+
+            <br/><hr style="width: 30%"/><br/>
+        </ui:composition>
+    </body>
+</html>

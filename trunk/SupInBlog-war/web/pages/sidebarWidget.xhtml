@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>menu</title>
+    </head>
+    <body>
+        <ui:composition>
+            <div class="art-BlockHeader">
+                <div class="l"></div>
+                <div class="r"></div>
+                <div class="art-header-tag-icon">
+                    <div class="t">#{title}</div>
+                </div>
+            </div>
+            <div class="art-BlockContent">
+                <div class="art-BlockContent-tl"></div>
+                <div class="art-BlockContent-tr"></div>
+                <div class="art-BlockContent-bl"></div>
+                <div class="art-BlockContent-br"></div>
+                <div class="art-BlockContent-tc"></div>
+                <div class="art-BlockContent-bc"></div>
+                <div class="art-BlockContent-cl"></div>
+                <div class="art-BlockContent-cr"></div>
+                <div class="art-BlockContent-cc"></div>
+                <div class="art-BlockContent-body">
+                  #{content}
+                    <div class="cleared"></div>
+                </div>
+            </div>
+            <div class="cleared"></div>
+        </ui:composition>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="pages/addComment.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="pages/action.xhtml" x="442" y="239" zoom="true"/>
+        <Node id="pages/sidebarWidget.xhtml" x="946" y="443" zoom="true"/>
+        <Node id="pages/postDisplayer.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="pages/sidebar.xhtml" x="656" y="536" zoom="true"/>
+        <Node id="pages/menu.xhtml" x="382" y="508" zoom="true"/>
+        <Node id="afficheCategories.xhtml" x="804" y="43" zoom="true"/>
+        <Node id="managePost.xhtml" x="752" y="142" zoom="true"/>
+        <Node id="pages/Login.xhtml" x="355" y="426" zoom="true"/>
+        <Node id="pages/header.xhtml" x="38" y="464" zoom="true"/>
+        <Node id="postlist.xhtml" x="289" y="347" zoom="true"/>
+        <Node id="404.xhtml" x="1086" y="107" zoom="true"/>
+        <Node id="pages/content.xhtml" x="973" y="491" zoom="true"/>
+        <Node id="index.xhtml" x="361" y="17" zoom="true"/>
+        <Node id="inscription.xhtml" x="32" y="78" zoom="true"/>
+        <Node id="pages/footer.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="tiny_mce/plugins/template/blank.htm" x="650" y="600" zoom="true"/>
+        <Node id="postDetail.xhtml" x="53" y="246" zoom="true"/>
+        <Node id="templates/template.xhtml" x="1027" y="373" zoom="true"/>
+        <Node id="pages/commentDisplayer.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="manageCategorie.xhtml" x="664" y="282" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

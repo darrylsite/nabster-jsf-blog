@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Untitled Document</title>
+    </head>
+    <body>
+        <ui:composition>
+            <div class="art-BlockHeader">
+                <div class="l"></div>
+                <div class="r"></div>
+                <div class="art-header-tag-icon">
+                    <div class="t">#{title}</div>
+                </div>
+            </div>
+
+            <div class="art-BlockContent">
+                <div class="art-BlockContent-tl"></div>
+                <div class="art-BlockContent-tr"></div>
+                <div class="art-BlockContent-bl"></div>
+                <div class="art-BlockContent-br"></div>
+                <div class="art-BlockContent-tc"></div>
+                <div class="art-BlockContent-bc"></div>
+                <div class="art-BlockContent-cl"></div>
+                <div class="art-BlockContent-cr"></div>
+                <div class="art-BlockContent-cc"></div>
+                <div class="art-BlockContent-body">
+                    <h:form>
+                        <ul>
+                            <li>
+                                <h:commandLink value="Nouveau post" action="managePost">
+                                    <f:setPropertyActionListener target="#{postBean.modif}" value="false" />
+                                </h:commandLink></li>
+                            <li>
+                                <h:commandLink value="Creation de categorie" action="manageCategorie">
+                                    <f:setPropertyActionListener target="#{categorieBean.modif}" value="false" />
+                                </h:commandLink>
+                            </li>
+                        </ul>
+                    </h:form>
+                    <div class="cleared"></div>
+                </div>
+            </div>
+            <div class="cleared"></div>
+        </ui:composition>
+    </body>
+</html>

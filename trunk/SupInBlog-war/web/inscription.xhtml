@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./templates/template.xhtml">
+
+            <ui:define name="title">
+                Inscription
+            </ui:define>
+
+            <ui:define name="content">
+<div class="art-Post">
+                <div class="art-Post-tl"></div>
+                <div class="art-Post-tr"></div>
+                <div class="art-Post-bl"></div>
+                <div class="art-Post-br"></div>
+                <div class="art-Post-tc"></div>
+                <div class="art-Post-bc"></div>
+                <div class="art-Post-cl"></div>
+                <div class="art-Post-cr"></div>
+                <div class="art-Post-cc"></div>
+                <div class="art-Post-body">
+                    <div class="art-Post-inner">
+                        <div class="art-PostMetadataHeader">
+                            <h2 class="art-PostHeader">
+                                Inscription
+                            </h2>
+                        </div>
+                        <div class="art-PostContent">
+<h:outputLabel binding="#{userBean.labelError}"/>
+<p></p>
+                                <h:form style="margin-left: auto">
+                                    <table>
+                                        <tr>
+                                            <td><h:outputLabel for="register_pseudo" value="Pseudo " /></td>
+                                            <td><h:inputText id="register_pseudo" value="#{userBean.pseudo}" size="30" required="true" validatorMessage="Au moins 5 caractere">
+                                                    <f:validateLength minimum="5" maximum="20"/>
+                                                </h:inputText>
+                                                <h:message for="register_pseudo" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><h:outputLabel for="register_pass" value="Mot de passe "/>
+
+                                            </td>
+                                            <td>
+                                                <h:inputSecret id="register_pass" value="#{userBean.password}" size="30" validatorMessage="Au moins 6 caractere" required="true" requiredMessage="*">
+                                                    <f:validateLength minimum="6" maximum="20"/>
+                                                </h:inputSecret>
+                                                <h:message for="register_pass"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td> <h:outputLabel for="register_pass2" value="(Re)Mot de passe " /></td>
+                                            <td>
+                                                <h:inputSecret id="register_pass2" size="30" value="#{userBean.password2}">
+
+                                                </h:inputSecret>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><h:outputLabel for="register_email" value="Email " /></td>
+                                            <td>
+                                                <h:inputText id="register_email" value="#{userBean.email}" size="30" validatorMessage="*" >
+                                                    <f:validateRegex pattern="[a-z0-9\._%\+\-]+@[a-z0-9\.\-]+\.[a-z]{2,4}" for="register_email" id="register_reg_email"/>
+                                                </h:inputText>
+                                                <h:message for="register_email" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><h:outputLabel for="register_date" value="Date de naissance " /></td>
+                                            <td>
+                                                <h:inputText id="register_date" value="#{userBean.dateOfBirth}" size="30" validatorMessage="Format : 24/09/2011" converterMessage="Format : 24/09/2011">
+                                                    <f:convertDateTime for="register_date" type="date" dateStyle="short" />
+                                                </h:inputText>
+                                                <h:message for="register_date"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td><input type="reset" value="retablir" class="art-button"/>  |  <h:commandButton value="Valider" action="#{userBean.register}" styleClass="art-button"/></td>
+                                        </tr>
+                                    </table>
+
+                                </h:form>
+
+
+                        </div>
+                        <div class="cleared"></div>
+                    </div>
+
+                    <div class="cleared"></div>
+                </div>
+            </div>
+            </ui:define>
+
+        </ui:composition>
+    </body>
+</html>
